@@ -78,13 +78,17 @@ export const RepoInfo = styled.section`
 `;
 
 export const Issues = styled.div`
-   margin-top: 80px;
+   margin: 80px 0;
+   max-height: 500px;
+   overflow-y: auto;
+   overflow-x: hidden;
 
    a {
       background-color: #fff;
       border-radius: 5px;
-      width: 100%;
       padding: 20px;
+      margin-right: 20px;
+      margin-left: 20px;
       display: block;
       text-decoration: none;
 

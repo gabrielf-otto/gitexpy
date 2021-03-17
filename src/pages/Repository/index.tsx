@@ -8,11 +8,11 @@ import logo from '../../assets/logo.svg';
 import { Header, RepoInfo, Issues } from './styles';
 
 
-interface RepoParams {
+interface IRepoParams {
    name: string;
 }
 
-interface Repo {
+interface IRepo {
    full_name: string;
    description: string;
    stargazers_count: number;
@@ -25,7 +25,7 @@ interface Repo {
    }
 }
 
-interface Issue {
+interface IIssue {
    id: number;
    title: string;
    author: string;
@@ -36,10 +36,10 @@ interface Issue {
 }
 
 const Repository: React.FC = () => {
-   const { name } = useParams<RepoParams>();
+   const { name } = useParams<IRepoParams>();
 
-   const [repo, setRepo] = useState<Repo | null>(null);
-   const [issues, setIssues] = useState<Issue[]>([]);
+   const [repo, setRepo] = useState<IRepo | null>(null);
+   const [issues, setIssues] = useState<IIssue[]>([]);
 
 
    useEffect(() => 
@@ -94,7 +94,7 @@ const Repository: React.FC = () => {
          ) }
 
          <Issues>
-            { issues.map(issue => {
+            { issues.map(issue => (
                <a key={issue.id} href={issue.html_url} target="_blank">
                   <div>
                      <strong>{issue.title}</strong>
@@ -102,7 +102,7 @@ const Repository: React.FC = () => {
                   </div>
                <FiChevronRight size={20}/>
                </a>
-            }) }
+            )) }
          </Issues>
       </React.Fragment>
    )

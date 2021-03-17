@@ -8,7 +8,7 @@ import logo from '../../assets/logo.svg';
 import api from '../../services/api';
 
 
-interface Repo {
+interface IRepo {
    full_name: string;
    description: string;
    owner: 
@@ -21,7 +21,7 @@ interface Repo {
 const Dashboard: React.FC = () => {
    const [newRepo, setNewRepo] = useState('');
    const [error, setError] = useState('');
-   const [repos, setRepos] = useState<Repo[]>(() =>
+   const [repos, setRepos] = useState<IRepo[]>(() =>
    {
       const storagedRepos = localStorage.getItem('@gitexpy:repos');
       if (storagedRepos) {
@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
       }
 
       try {
-         const response = await api.get<Repo>(`repos/${newRepo}`);
+         const response = await api.get<IRepo>(`repos/${newRepo}`);
          const repo = response.data;
 
          setRepos([...repos, repo]);

@@ -11,6 +11,17 @@ export default createGlobalStyle`
       box-sizing: border-box;
    }
 
+   ::-webkit-scrollbar-track {
+      background-color: #F4F4F4;
+   }
+   ::-webkit-scrollbar {
+      width: 6px;
+      background: #F4F4F4;
+   }
+   ::-webkit-scrollbar-thumb {
+      background: #dad7d7;
+   }
+
    body {
       background-image: url(${githubBg});
       background-repeat: no-repeat;
